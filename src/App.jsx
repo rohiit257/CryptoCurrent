@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Coinlist from "./Components/CoinList/Coinlist";
 import News from "./Components/News/News";
+import Alert from "./Components/Alert/Alert";
 
 
 const infoUrl =
@@ -84,6 +85,7 @@ function App() {
   return (
     <>
       <Sidebar />
+      <Alert/>
       <Coinlist  topCoins={topCoins} globalStats={globalStats}/>
       <News newsData={newsData}/>
       
