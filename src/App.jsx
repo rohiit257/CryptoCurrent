@@ -3,6 +3,14 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Coinlist from "./Components/CoinList/Coinlist";
 import News from "./Components/News/News";
 import Alert from "./Components/Alert/Alert";
+import {
+  BrowserRouter,//router
+  Routes, // instead of "Switch"
+  Route,
+} from "react-router-dom";
+import About from "./Components/About/About";
+import Footer from "./Components/Footer/Footer";
+import { data } from "autoprefixer";
 
 
 const infoUrl =
@@ -21,6 +29,7 @@ function App() {
 
   const [globalStats, setGlobalStats] = useState(null);
   const [topCoins, setTopCoins] = useState([]);
+  const [gitdata, setgitdata] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,16 +87,48 @@ function App() {
     fetchnewsdata();
   }, []);
 
+  async function githubdata() {
+    try {
+      const response = await fetch("https://api.github.com/users/rohiit257");
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+  
+      const data = await response.json();
+     
+      console.log(data);
+      // Assuming setgitdata is a state setter function
+      setgitdata(data);
+    } catch (error) {
+      console.error('Error fetching GitHub data:', error);
+    }
+  }
+  
+  // Call the function to fetch GitHub data
+  githubdata();
+  
+  
+
 
 
 
 
   return (
     <>
-      <Sidebar />
+    <BrowserRouter>
+    <Sidebar />
       <Alert/>
-      <Coinlist  topCoins={topCoins} globalStats={globalStats}/>
-      <News newsData={newsData}/>
+      <Routes>
+        <Route path="/" element={<Coinlist  topCoins={topCoins} globalStats={globalStats} />}/>
+        <Route path="/news" element={<News newsData={newsData}/>}/>
+        <Route path="/about" element={<About gitdata={gitdata}/>}/>
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
+     
+      
+      
       
       
     </>
