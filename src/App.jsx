@@ -102,6 +102,7 @@ function App() {
       setgitdata(data);
     } catch (error) {
       console.error('Error fetching GitHub data:', error);
+      console.log("working")
     }
   }
   
