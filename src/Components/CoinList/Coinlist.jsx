@@ -32,6 +32,10 @@ function Coinlist({ topCoins, globalStats }) {
             )}
             
           </div>
+          <div className="text-zinc-400">
+            
+            
+          </div>
 
           <div className="md:w-1/2 md:text-right  ">
             
@@ -52,7 +56,7 @@ function Coinlist({ topCoins, globalStats }) {
               <div className=" border border-zinc-800 md:rounded-lg">
                 <table className=" divide-y w-full divide-zinc-800">
                   <thead className="bg-zinc-900 ">
-                    <tr>
+                    <tr className="">
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-left text-sm  font-normal text-zinc-400"

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -15,13 +15,11 @@ function Sidebar() {
           <div className="inline-flex items-center space-x-2">
             <span>
               <svg
-
                 width="30"
                 height="30"
                 viewBox="0 0 50 56"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                
               >
                 {/* ... existing SVG path ... */}
               </svg>
@@ -56,7 +54,7 @@ function Sidebar() {
               </li>
             </ul>
           </div>
-          <div className="hidden lg:block"></div>
+          
           <div className="lg:hidden" onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
